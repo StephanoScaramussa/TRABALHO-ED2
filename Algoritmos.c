@@ -52,3 +52,6 @@ void insercaoDireta(int vet[], int size){
     }
 }
 
+void insercaoBinaria(int vet[], int size){
+    
+}

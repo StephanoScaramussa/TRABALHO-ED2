@@ -4,7 +4,7 @@
 void bolha(int vet[], int size);
 void bolhaParada(int vet[], int size);
 void insercaoDireta(int vet[], int size);
-void insercaoBinaria(int vet[]);
+void insercaoBinaria(int vet[], int size);
 void insercaoTernaria(int vet[]);
 void shellSort(int vet[]);
 void selectionSort(int vet[]);
