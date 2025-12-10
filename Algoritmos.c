@@ -1,6 +1,7 @@
 #include "Algoritmos.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void bolha(int vet[], int size){
     int auxiliar;
@@ -17,5 +18,24 @@ void bolha(int vet[], int size){
     }
 }
 
+void bolhaParada(int vet[], int size){
+    int indice = size - 1;
+    bool mudou = true;
+    while(mudou){
+        int j = 1;
+        mudou = false;
+        while(j < size){
+            if(vet[j-1] > vet[j]){
+                int auxiliar = vet[j - 1];
+                vet[j - 1] = vet[j];
+                vet[j] = auxiliar;
+                mudou = true;
+            }
+            indice = j;
+            j = j + 1;
+        }
+        size = indice;
+    }
+}
 
 
