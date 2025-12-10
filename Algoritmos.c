@@ -38,4 +38,7 @@ void bolhaParada(int vet[], int size){
     }
 }
 
+void insercaoDireta(int vet[], int size){
+    
+}
 

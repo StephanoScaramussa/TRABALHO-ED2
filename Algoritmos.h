@@ -1,5 +1,5 @@
-#ifndef ALGORITMO_H
-#define ALGORITMO_H
+#ifndef ALGORITMOS_H
+#define ALGORITMOS_H
 
 void bolha(int vet[], int size);
 void bolhaParada(int vet[], int size);
