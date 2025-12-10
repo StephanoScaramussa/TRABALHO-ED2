@@ -2,7 +2,7 @@
 #define ALGORITMO_H
 
 void bolha(int vet[]);
-void bolhaParada(int vet[])
+void bolhaParada(int vet[]);
 void insercaoDireta(int vet[]);
 void insercaoBinaria(int vet[]);
 void insercaoTernaria(int vet[]);

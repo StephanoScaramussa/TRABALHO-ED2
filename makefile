@@ -1,14 +1,14 @@
 all: main
 	./main
 
-main: main.o Algoritmo.o GeradorValores.o
-	gcc main.o Algoritmo.o GeradorValores.o
+main: main.o Algoritmos.o
+	gcc main.o Algoritmos.o -lm -o main
 
-main.o: main.c
-	gcc -c main.c
+main.o: main.c Algoritmos.h
+	gcc -Wall -Werror -c main.c
 
-Algoritmo.o: Algoritmo.c
-	gcc - c Algoritmo.c
+Algoritmos.o: Algoritmos.c Algoritmos.h
+	gcc -Wall -Werror -c Algoritmos.c
 
-GeradorValores.o:
-	gcc -c 
+clean: 
+	rm -f *.o main
