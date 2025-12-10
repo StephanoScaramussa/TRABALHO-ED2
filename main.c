@@ -4,10 +4,10 @@
 int main(void){
     int vet[5] = {4,1,1,5,7};
 
-    bolha(vet);
+    bolha(vet, 5);
     
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 5; i++){
         printf("%i", vet[i]);
     }
 

@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void bolha(int vet[]){
-    int size = (sizeof(vet[0])*sizeof(int))/sizeof(int);
+void bolha(int vet[], int size){
     int auxiliar;
     int i, j;
 
