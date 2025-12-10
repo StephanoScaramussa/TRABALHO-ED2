@@ -39,6 +39,16 @@ void bolhaParada(int vet[], int size){
 }
 
 void insercaoDireta(int vet[], int size){
-    
+    for (int i = 1; i < size; i++) {
+        int chave = vet[i];
+        int j = i - 1;
+
+        while (j >= 0 && vet[j] > chave) {
+            vet[j + 1] = vet[j];
+            j--;
+        }
+
+        vet[j + 1] = chave;
+    }
 }
 

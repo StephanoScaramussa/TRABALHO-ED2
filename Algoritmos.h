@@ -3,7 +3,7 @@
 
 void bolha(int vet[], int size);
 void bolhaParada(int vet[], int size);
-void insercaoDireta(int vet[]);
+void insercaoDireta(int vet[], int size);
 void insercaoBinaria(int vet[]);
 void insercaoTernaria(int vet[]);
 void shellSort(int vet[]);
