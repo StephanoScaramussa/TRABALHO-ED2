@@ -4,7 +4,7 @@
 int main(void){
     int vet[5] = {4,1,1,5,7};
 
-    insercaoDireta(vet, 5);
+    insercaoBinaria(vet, 5);
     
 
     for(int i = 0; i < 5; i++){

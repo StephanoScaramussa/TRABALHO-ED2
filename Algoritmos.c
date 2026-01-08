@@ -52,6 +52,27 @@ void insercaoDireta(int vet[], int size){
     }
 }
 
-void insercaoBinaria(int vet[], int size){
-    
+void insercaoBinaria(int vet[], int size) {
+    int auxiliar, esq, dir, meio;
+
+    for (int i = 1; i < size; i++) {
+        auxiliar = vet[i];
+        esq = 0;
+        dir = i - 1;
+
+        while (esq <= dir) {
+            meio = (esq + dir) / 2;
+            if (vet[meio] <= auxiliar) {
+                esq = meio + 1;
+            } else {
+                dir = meio - 1;
+            }
+        }
+
+        for (int j = i; j > esq; j--) {
+            vet[j] = vet[j - 1];
+        }
+
+        vet[esq] = auxiliar;
+    }
 }
