@@ -76,3 +76,8 @@ void insercaoBinaria(int vet[], int size) {
         vet[esq] = auxiliar;
     }
 }
+
+void insercaoTernaria(int vet[]){
+
+    
+}
