@@ -128,3 +128,8 @@ void shellSort(int vet[], int size){
         }
     }
 }
+
+void selectionSort(int vet[], int size){
+    
+
+}
