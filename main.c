@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 int main(void){
-    int vet[5] = {4,1,10,5,7};
+    int vet[5] = {4,1,0,5,7};
 
-    shellSort(vet, 5);
+    selectionSort(vet, 5);
     
 
     for(int i = 0; i < 5; i++){

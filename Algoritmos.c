@@ -130,6 +130,18 @@ void shellSort(int vet[], int size){
 }
 
 void selectionSort(int vet[], int size){
-    
-
+    int menor, auxiliar;
+    for(int i = 0; i < size - 1; i++){
+        menor = i;
+        for(int j = i + 1; j < size; j ++){
+            if(vet[j] < vet[menor]){
+                menor = j;
+            }
+        }
+        if (i != menor){
+            auxiliar = vet[i];
+            vet[i] = vet[menor];
+            vet[menor] = auxiliar;
+        }
+    }
 }

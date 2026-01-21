@@ -7,8 +7,9 @@ void insercaoDireta(int vet[], int size);
 void insercaoBinaria(int vet[], int size);
 void insercaoTernaria(int vet[], int size);
 void shellSort(int vet[], int size);
-void selectionSort(int vet[]);
+void selectionSort(int vet[], int size);
 void heapSort(int vet[]);
+void criaHeap(int size, );
 void quickSort(int vet[], int pivo);//pivo = 1 (centro); pivo = 2 (ultimo); pivp = 3 (mediana)  
 void margeSort(int vet[]);
 void radixSort(int vet[]);
