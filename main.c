@@ -2,13 +2,13 @@
 #include <stdio.h>
 
 int main(void){
-    int vet[5] = {4,1,0,5,7};
+    int vet[9] = {4,1,0,5,7,10,34,6,32};
 
-    selectionSort(vet, 5);
+    heapSort(vet, 9);
     
 
-    for(int i = 0; i < 5; i++){
-        printf("%i", vet[i]);
+    for(int i = 0; i < 9; i++){
+        printf("[%i]", vet[i]);
     }
 
     return 0;

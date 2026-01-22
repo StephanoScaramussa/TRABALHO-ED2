@@ -145,3 +145,40 @@ void selectionSort(int vet[], int size){
         }
     }
 }
+
+void criaHeap(int vet[], int ini, int fim){
+    int auxiliar = vet[ini];
+    int j = ini*2 + 1;
+
+    while(j <= fim){
+        if(j < fim){
+            if(vet[j] < vet[j + 1]){
+                j += 1;
+            }
+        }
+        if(auxiliar < vet[j]){
+            vet[ini] = vet[j];
+            ini = j;
+            j = 2*ini + 1;   
+        }else{
+            j = fim + 1;
+        }
+    }
+    vet[ini] = auxiliar;
+}
+
+void heapSort(int vet[], int size){
+    int aux;
+
+    for(int i = (size - 1)/2; i >= 0; i--){
+        criaHeap(vet, i, size - 1);
+    }
+
+    for(int i = size - 1; i > 0; i--){
+        aux = vet[0];
+        vet[0] = vet[i];
+        vet[i] = aux;
+
+        criaHeap(vet, 0, i - 1);
+    }
+}
