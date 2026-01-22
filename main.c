@@ -4,7 +4,8 @@
 int main(void){
     int vet[9] = {4,1,0,5,7,10,34,6,32};
 
-    quickSort(vet, 0, 9);
+    //pivo -> começo 
+    quickSort(vet, 0, 9, 3);
     
 
     for(int i = 0; i < 9; i++){

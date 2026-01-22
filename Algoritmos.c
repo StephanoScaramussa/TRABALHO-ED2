@@ -183,11 +183,52 @@ void heapSort(int vet[], int size){
     }
 }
 
-void particaoQuick(int* dados, int esq, int dir, int *i, int *j){
+//calculo da mediana [menor][meio][maior]
+int calculoMediana(int vet[], int esq, int dir){
+    int meio = (esq + dir)/2;
+    int aux = 0;
+
+    if(vet[esq] > vet[meio]){
+        aux = vet[esq];
+        vet[esq] = vet[meio];
+        vet[meio] = aux;
+    }
+
+    if(vet[meio] > vet[dir]){
+        aux = vet[meio];
+        vet[meio] = vet[dir];
+        vet[dir] = aux;
+    }
+
+    if(vet[meio] < vet[esq]){
+        aux = vet[esq];
+        vet[esq] = vet[meio];
+        vet[meio] = aux;
+    }
+
+    return vet[meio];
+}
+
+void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo){
     int pivo, aux;
     *i = esq;
     *j = dir;
-    pivo = dados[(esq + dir)/2];
+
+    switch (posiPivo)
+    {
+    //pivo = 1 (centro)
+    case 1:
+        pivo = dados[(esq + dir)/2];
+        break;
+    //pivo = 2 (último) -> POSSÍVEL PIOR CASO O(n^2)
+    case 2:
+        pivo = dados[esq];
+    case 3:
+    //pivo = 3 (mediana)
+        pivo = calculoMediana(dados, esq, dir);
+    default:
+        break;
+    }
 
     while(*i <= *j){
         while(dados[*i] < pivo && *i < dir){
@@ -207,16 +248,16 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j){
     }
 }
 
-void quickSort(int vet[], int esq, int dir){ 
+void quickSort(int vet[], int esq, int dir, int posiPivo){ 
     int i, j;
 
     //i e j como estão sendo passados como referência, receberam seus repectivos valores 
-    particaoQuick(vet, esq, dir, &i, &j);
+    particaoQuick(vet, esq, dir, &i, &j, posiPivo);
 
     if(i < dir){
-        quickSort(vet, i, dir);
+        quickSort(vet, i, dir, posiPivo);
     }
     if(j > esq){
-        quickSort(vet, esq, j);
+        quickSort(vet, esq, j, posiPivo);
     }
 }
