@@ -182,3 +182,41 @@ void heapSort(int vet[], int size){
         criaHeap(vet, 0, i - 1);
     }
 }
+
+void particaoQuick(int* dados, int esq, int dir, int *i, int *j){
+    int pivo, aux;
+    *i = esq;
+    *j = dir;
+    pivo = dados[(esq + dir)/2];
+
+    while(*i <= *j){
+        while(dados[*i] < pivo && *i < dir){
+            (*i)++;
+        }
+
+        while(dados[*j] > pivo && *j > esq){
+            (*j)--;
+        }
+        if(*i <= *j){
+            aux = dados[*i];
+            dados[*i] = dados[*j];
+            dados[*j] = aux;
+            (*i)++;
+            (*j)--;
+        }
+    }
+}
+
+void quickSort(int vet[], int esq, int dir){ 
+    int i, j;
+
+    //i e j como estão sendo passados como referência, receberam seus repectivos valores 
+    particaoQuick(vet, esq, dir, &i, &j);
+
+    if(i < dir){
+        quickSort(vet, i, dir);
+    }
+    if(j > esq){
+        quickSort(vet, esq, j);
+    }
+}
