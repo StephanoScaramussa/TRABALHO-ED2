@@ -261,3 +261,14 @@ void quickSort(int vet[], int esq, int dir, int posiPivo){
         quickSort(vet, esq, j, posiPivo);
     }
 }
+
+void margeSort(int vet[], int ini, int fim){
+    int meio;
+    
+    if (ini < fim){
+        meio = (ini + fim)/2;
+        margeSort(vet, ini, fim);
+        margeSort(vet, ini, fim);
+        intercalarMarge(vet, ini, fim, meio);
+    }
+}

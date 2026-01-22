@@ -13,7 +13,8 @@ void criaHeap(int vet[], int ini, int fim);
 int calculoMediana(int vet[], int esq, int dir);
 void quickSort(int vet[], int esq, int dir, int posiPivo);//pivo = 1 (centro); pivo = 2 (ultimo); pivp = 3 (mediana) 
 void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo); 
-void margeSort(int vet[], int size);
+void margeSort(int vet[], int ini, int fim);
+void intercalarMarge();
 void radixSort(int vet[]);
 void bucketSort(int vet[]);
 
