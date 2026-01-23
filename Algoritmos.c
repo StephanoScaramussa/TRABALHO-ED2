@@ -262,13 +262,38 @@ void quickSort(int vet[], int esq, int dir, int posiPivo){
     }
 }
 
+void intercalarMarge(int vet[], int ini, int meio, int fim){
+    int i = ini;
+    int j = meio + 1;
+    int k = 0;
+
+    int *tmp = (int*) malloc((fim - ini + 1) * sizeof(int));
+
+    while (i <= meio || j <= fim) {
+        if (i == meio + 1)
+            tmp[k++] = vet[j++];
+        else if (j == fim + 1)
+            tmp[k++] = vet[i++];
+        else if (vet[j] < vet[i])
+            tmp[k++] = vet[j++];
+        else
+            tmp[k++] = vet[i++];
+    }
+
+    for (i = ini, k = 0; i <= fim; i++, k++) {
+        vet[i] = tmp[k];
+    }
+
+    free(tmp);
+}
+
 void margeSort(int vet[], int ini, int fim){
     int meio;
     
-    if (ini < fim){
+    if (ini < fim){  
         meio = (ini + fim)/2;
-        margeSort(vet, ini, fim);
-        margeSort(vet, ini, fim);
-        intercalarMarge(vet, ini, fim, meio);
+        margeSort(vet, ini, meio);
+        margeSort(vet, meio + 1, fim);
+        intercalarMarge(vet, ini, meio, fim);
     }
 }
