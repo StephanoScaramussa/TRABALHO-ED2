@@ -11,12 +11,16 @@ void selectionSort(int vet[], int size);
 void heapSort(int vet[], int size);
 void criaHeap(int vet[], int ini, int fim);
 int calculoMediana(int vet[], int esq, int dir);
-void quickSort(int vet[], int esq, int dir, int posiPivo);
+void quickSortCentro(int vet[], int esq, int dir);
+void quickSortFim(int vet[], int esq, int dir);
+void quickSortMediana(int vet[], int esq, int dir);
 void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo); 
 void margeSort(int vet[], int ini, int fim);
 void intercalarMarge(int vet[], int ini, int meio, int fim);
 void radixSort(int vet[], int size);
-void bucketSort(int vet[]);
+int getMax(int vet[], int n);
+void countSort(int vet[], int n, int exp);
+void bucketSort(int vet[], int size);
 
 
 #endif

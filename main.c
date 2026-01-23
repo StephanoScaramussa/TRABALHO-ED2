@@ -5,7 +5,7 @@ int main(void){
     int vet[9] = {4,1,0,5,7,10,34,6,32};
 
     //pivo -> começo 
-    margeSort(vet, 0, 9);
+    radixSort(vet, 9);
     
 
     for(int i = 0; i < 9; i++){
