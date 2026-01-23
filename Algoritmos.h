@@ -1,14 +1,14 @@
 #ifndef ALGORITMOS_H
 #define ALGORITMOS_H
 
-void bolha(int vet[], int size);
-void bolhaParada(int vet[], int size);
-void insercaoDireta(int vet[], int size);
-void insercaoBinaria(int vet[], int size);
-void insercaoTernaria(int vet[], int size);
-void shellSort(int vet[], int size);
-void selectionSort(int vet[], int size);
-void heapSort(int vet[], int size);
+double bolha(int vet[], int size);
+double bolhaParada(int vet[], int size);
+double insercaoDireta(int vet[], int size);
+double insercaoBinaria(int vet[], int size);
+double insercaoTernaria(int vet[], int size);
+double shellSort(int vet[], int size);
+double selectionSort(int vet[], int size);
+double heapSort(int vet[], int size);
 void criaHeap(int vet[], int ini, int fim);
 int calculoMediana(int vet[], int esq, int dir);
 void quickSortCentro(int vet[], int esq, int dir);

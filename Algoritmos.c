@@ -2,11 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
-void bolha(int vet[], int size){
+double bolha(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+
+    inicio = clock();
     int auxiliar;
     int i, j;
-
     for (i = size - 1; i > 0; i--) {
         for (j = 0; j < i; j++) {
             if (vet[j] > vet[j + 1]) {
@@ -16,9 +20,16 @@ void bolha(int vet[], int size){
             }
         }
     }
+    fim = clock();
+    temp =  (double)(fim - inicio)/CLOCKS_PER_SEC;
+    return temp;
 }
 
-void bolhaParada(int vet[], int size){
+double bolhaParada(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+
+    inicio = clock();
     int indice = size - 1;
     bool mudou = true;
     while(mudou){
@@ -36,9 +47,16 @@ void bolhaParada(int vet[], int size){
         }
         size = indice;
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+    return temp;
 }
 
-void insercaoDireta(int vet[], int size){
+double insercaoDireta(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+
+    inicio = clock();
     for (int i = 1; i < size; i++) {
         int chave = vet[i];
         int j = i - 1;
@@ -50,11 +68,18 @@ void insercaoDireta(int vet[], int size){
 
         vet[j + 1] = chave;
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void insercaoBinaria(int vet[], int size) {
-    int auxiliar, esq, dir, meio;
+double insercaoBinaria(int vet[], int size) {
+    clock_t inicio, fim;
+    double temp;
 
+    inicio = clock();
+    int auxiliar, esq, dir, meio;
     for (int i = 1; i < size; i++) {
         auxiliar = vet[i];
         esq = 0;
@@ -75,11 +100,18 @@ void insercaoBinaria(int vet[], int size) {
 
         vet[esq] = auxiliar;
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void insercaoTernaria(int vet[], int size) {
-    int auxiliar, esq, dir, m1, m2;
+double insercaoTernaria(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
 
+    inicio = clock();
+    int auxiliar, esq, dir, m1, m2;
     for (int i = 1; i < size; i++) {
         auxiliar = vet[i];
         esq = 0;
@@ -107,9 +139,17 @@ void insercaoTernaria(int vet[], int size) {
 
         vet[esq] = auxiliar;
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void shellSort(int vet[], int size){
+double shellSort(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+
+    inicio = clock();
     int h, auxiliar, j;
     h = 1;  
     while(h < size){
@@ -127,9 +167,17 @@ void shellSort(int vet[], int size){
             vet[j + h] = auxiliar;
         }
     }
+    fim = clock();
+
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+    return temp;
 }
 
-void selectionSort(int vet[], int size){
+double selectionSort(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+
+    inicio = clock();
     int menor, auxiliar;
     for(int i = 0; i < size - 1; i++){
         menor = i;
@@ -144,6 +192,10 @@ void selectionSort(int vet[], int size){
             vet[menor] = auxiliar;
         }
     }
+    fim = clock();
+
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+    return temp;
 }
 
 void criaHeap(int vet[], int ini, int fim){
@@ -167,9 +219,12 @@ void criaHeap(int vet[], int ini, int fim){
     vet[ini] = auxiliar;
 }
 
-void heapSort(int vet[], int size){
-    int aux;
+double heapSort(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
 
+    inicio = clock();
+    int aux;
     for(int i = (size - 1)/2; i >= 0; i--){
         criaHeap(vet, i, size - 1);
     }
@@ -181,6 +236,10 @@ void heapSort(int vet[], int size){
 
         criaHeap(vet, 0, i - 1);
     }
+    fim = clock();
+
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+    return temp;
 }
 
 //calculo da mediana [menor][meio][maior]
