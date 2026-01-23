@@ -15,7 +15,7 @@ void quickSort(int vet[], int esq, int dir, int posiPivo);
 void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo); 
 void margeSort(int vet[], int ini, int fim);
 void intercalarMarge(int vet[], int ini, int meio, int fim);
-void radixSort(int vet[]);
+void radixSort(int vet[], int size);
 void bucketSort(int vet[]);
 
 
