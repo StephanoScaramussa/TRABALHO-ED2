@@ -363,3 +363,41 @@ void radixSort(int vet[], int size){
         countSort(vet, size, exp);
     }
 }
+
+void bucketSort(int vet[], int size) {
+    int max = vet[0];
+
+    for (int i = 1; i < size; i++) {
+        if (vet[i] > max)
+            max = vet[i];
+    }
+
+    int **buckets = (int **)malloc(size * sizeof(int *));
+    int *count = (int *)calloc(size, sizeof(int));
+
+    for (int i = 0; i < size; i++) {
+        buckets[i] = (int *)malloc(size * sizeof(int));
+    }
+
+    for (int i = 0; i < size; i++) {
+        int indice = (size * vet[i]) / (max + 1);
+        buckets[indice][count[indice]++] = vet[i];
+    }
+
+    for (int i = 0; i < size; i++) {
+        if (count[i] > 0) {
+            insercaoDireta(buckets[i], count[i]);
+        }
+    }
+
+    int k = 0;
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < count[i]; j++) {
+            vet[k++] = buckets[i][j];
+        }
+        free(buckets[i]);
+    }
+
+    free(buckets);
+    free(count);
+}
