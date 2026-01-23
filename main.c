@@ -6,7 +6,7 @@ int main(void){
 
     //pivo -> começo 
     double tempo = bolha(vet, 9);
-    printf("Tempo: %f.2f", tempo);
+    printf("Tempo: %.15f", tempo);
 
     for(int i = 0; i < 9; i++){
         printf("[%i]", vet[i]);

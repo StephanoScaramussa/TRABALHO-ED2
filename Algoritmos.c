@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <time.h>
 
-double bolha(int vet[], int size){
+double bolha(int vet[], int size, int* troc, int* compare){
     clock_t inicio, fim;
     double temp;
 
@@ -13,7 +13,9 @@ double bolha(int vet[], int size){
     int i, j;
     for (i = size - 1; i > 0; i--) {
         for (j = 0; j < i; j++) {
+            *compare += 1;
             if (vet[j] > vet[j + 1]) {
+                *troc += 1;
                 auxiliar = vet[j];
                 vet[j] = vet[j + 1];
                 vet[j + 1] = auxiliar;
@@ -307,7 +309,11 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo){
     }
 }
 
-void quickSortCentro(int vet[], int esq, int dir){ 
+double quickSortCentro(int vet[], int esq, int dir){
+    clock_t inicio, fim;
+    double temp;
+    
+    inicio = clock();
     int i, j;
 
     //i e j como estão sendo passados como referência, receberam seus repectivos valores 
@@ -319,9 +325,17 @@ void quickSortCentro(int vet[], int esq, int dir){
     if(j > esq){
         quickSortCentro(vet, esq, j);
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void quickSortFim(int vet[], int esq, int dir){ 
+double quickSortFim(int vet[], int esq, int dir){ 
+    clock_t inicio, fim;
+    double temp;
+    
+    inicio = clock();
     int i, j;
 
     //i e j como estão sendo passados como referência, receberam seus repectivos valores 
@@ -333,9 +347,17 @@ void quickSortFim(int vet[], int esq, int dir){
     if(j > esq){
         quickSortFim(vet, esq, j);
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void quickSortMediana(int vet[], int esq, int dir){ 
+double quickSortMediana(int vet[], int esq, int dir){ 
+    clock_t inicio, fim;
+    double temp;
+    
+    inicio = clock();
     int i, j;
 
     //i e j como estão sendo passados como referência, receberam seus repectivos valores 
@@ -347,6 +369,10 @@ void quickSortMediana(int vet[], int esq, int dir){
     if(j > esq){
         quickSortMediana(vet, esq, j);
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
 void intercalarMarge(int vet[], int ini, int meio, int fim){
@@ -374,7 +400,11 @@ void intercalarMarge(int vet[], int ini, int meio, int fim){
     free(tmp);
 }
 
-void margeSort(int vet[], int ini, int fim){
+double margeSort(int vet[], int ini, int fim){
+    clock_t inicio, end;
+    double temp;
+    
+    inicio = clock();
     int meio;
     
     if (ini < fim){  
@@ -383,6 +413,10 @@ void margeSort(int vet[], int ini, int fim){
         margeSort(vet, meio + 1, fim);
         intercalarMarge(vet, ini, meio, fim);
     }
+    end = clock();
+    temp = (double)(end - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
 int getMax(int vet[], int n){
@@ -415,15 +449,27 @@ void countSort(int vet[], int n, int exp){
 }
 
 
-void radixSort(int vet[], int size){
+double radixSort(int vet[], int size){
+    clock_t inicio, fim;
+    double temp;
+    
+    inicio = clock();
     int maximo = getMax(vet, size);
 
     for(int exp = 1; maximo/exp > 0; exp *= 10){
         countSort(vet, size, exp);
     }
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
 
-void bucketSort(int vet[], int size) {
+double bucketSort(int vet[], int size) {
+    clock_t inicio, fim;
+    double temp;
+    
+    inicio = clock();
     int max = vet[0];
 
     for (int i = 1; i < size; i++) {
@@ -459,4 +505,8 @@ void bucketSort(int vet[], int size) {
 
     free(buckets);
     free(count);
+    fim = clock();
+    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
+
+    return temp;
 }
