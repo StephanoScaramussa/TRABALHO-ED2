@@ -70,23 +70,28 @@ double insercaoDireta(int vet[], int size, int* troc, int* compare){
     for (int i = 1; i < size; i++) {
         int chave = vet[i];
         int j = i - 1;
-        *compare += 1;
-        while (j >= 0 && vet[j] > chave) {
-            *troc += 1;
+        while (j >= 0) {
             *compare += 1;
-            vet[j + 1] = vet[j];
-            j--;
+            if(vet[j] > chave){
+                *troc += 1;
+                vet[j + 1] = vet[j];
+                j--;
+            }else{
+                break;
+            }
         }
 
         vet[j + 1] = chave;
     }
+    *compare += 1;
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
-
     return temp;
 }
 
-double insercaoBinaria(int vet[], int size) {
+double insercaoBinaria(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -99,7 +104,8 @@ double insercaoBinaria(int vet[], int size) {
 
         while (esq <= dir) {
             meio = (esq + dir) / 2;
-            if (vet[meio] <= auxiliar) {
+            *compare += 1;
+            if (auxiliar > vet[meio]){
                 esq = meio + 1;
             } else {
                 dir = meio - 1;
@@ -107,6 +113,7 @@ double insercaoBinaria(int vet[], int size) {
         }
 
         for (int j = i; j > esq; j--) {
+            *troc += 1;
             vet[j] = vet[j - 1];
         }
 
