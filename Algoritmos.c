@@ -125,7 +125,10 @@ double insercaoBinaria(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double insercaoTernaria(int vet[], int size){
+double insercaoTernaria(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
+
     clock_t inicio, fim;
     double temp;
 
@@ -140,11 +143,13 @@ double insercaoTernaria(int vet[], int size){
             m1 = esq + (dir - esq) / 3;
             m2 = dir - (dir - esq) / 3;
 
+            *compare += 1;
             if (auxiliar < vet[m1]) {
                 dir = m1 - 1;
             } 
             else if (auxiliar > vet[m2]) {
                 esq = m2 + 1;
+                *compare += 1;
             } 
             else {
                 esq = m1 + 1;
@@ -153,6 +158,7 @@ double insercaoTernaria(int vet[], int size){
         }
 
         for (int j = i; j > esq; j--) {
+            *troc += 1;
             vet[j] = vet[j - 1];
         }
 
