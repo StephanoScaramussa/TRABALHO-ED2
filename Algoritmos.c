@@ -5,6 +5,8 @@
 #include <time.h>
 
 double bolha(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -27,7 +29,9 @@ double bolha(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double bolhaParada(int vet[], int size){
+double bolhaParada(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -38,7 +42,9 @@ double bolhaParada(int vet[], int size){
         int j = 1;
         mudou = false;
         while(j < size){
+            *compare += 1;
             if(vet[j-1] > vet[j]){
+                *troc += 1;
                 int auxiliar = vet[j - 1];
                 vet[j - 1] = vet[j];
                 vet[j] = auxiliar;
@@ -54,7 +60,9 @@ double bolhaParada(int vet[], int size){
     return temp;
 }
 
-double insercaoDireta(int vet[], int size){
+double insercaoDireta(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -62,8 +70,10 @@ double insercaoDireta(int vet[], int size){
     for (int i = 1; i < size; i++) {
         int chave = vet[i];
         int j = i - 1;
-
+        *compare += 1;
         while (j >= 0 && vet[j] > chave) {
+            *troc += 1;
+            *compare += 1;
             vet[j + 1] = vet[j];
             j--;
         }
@@ -491,7 +501,7 @@ double bucketSort(int vet[], int size) {
 
     for (int i = 0; i < size; i++) {
         if (count[i] > 0) {
-            insercaoDireta(buckets[i], count[i]);
+            insercaoDireta(buckets[i], count[i], NULL, NULL);
         }
     }
 
