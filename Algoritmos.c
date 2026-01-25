@@ -246,17 +246,20 @@ double selectionSort(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-void criaHeap(int vet[], int ini, int fim){
+void criaHeap(int vet[], int ini, int fim, int *troc, int* compare){
     int auxiliar = vet[ini];
     int j = ini*2 + 1;
 
     while(j <= fim){
+        //*compare += 1;
         if(j < fim){
+            *compare += 1;
             if(vet[j] < vet[j + 1]){
                 j += 1;
             }
         }
         if(auxiliar < vet[j]){
+            *troc += 1;
             vet[ini] = vet[j];
             ini = j;
             j = 2*ini + 1;   
@@ -267,22 +270,26 @@ void criaHeap(int vet[], int ini, int fim){
     vet[ini] = auxiliar;
 }
 
-double heapSort(int vet[], int size){
+double heapSort(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
+
     clock_t inicio, fim;
     double temp;
 
     inicio = clock();
     int aux;
     for(int i = (size - 1)/2; i >= 0; i--){
-        criaHeap(vet, i, size - 1);
+        criaHeap(vet, i, size - 1, troc, compare);
     }
 
     for(int i = size - 1; i > 0; i--){
+        *troc += 1;
         aux = vet[0];
         vet[0] = vet[i];
         vet[i] = aux;
 
-        criaHeap(vet, 0, i - 1);
+        criaHeap(vet, 0, i - 1, troc, compare);
     }
     fim = clock();
 

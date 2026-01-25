@@ -6,7 +6,7 @@ int main(void){
 
     //pivo -> começo 
     int troca, comparacao;
-    double tempo = selectionSort(vet, 9, &troca, &comparacao);
+    double tempo = heapSort(vet, 9, &troca, &comparacao);
     printf("Tempo: %.15f", tempo);
 
     for(int i = 0; i < 9; i++){
