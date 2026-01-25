@@ -147,13 +147,15 @@ double insercaoTernaria(int vet[], int size, int* troc, int* compare){
             if (auxiliar < vet[m1]) {
                 dir = m1 - 1;
             } 
-            else if (auxiliar > vet[m2]) {
-                esq = m2 + 1;
+            else{
                 *compare += 1;
-            } 
-            else {
-                esq = m1 + 1;
-                dir = m2 - 1;
+                if (auxiliar > vet[m2]) {
+                    esq = m2 + 1;
+                } 
+                else {
+                    esq = m1 + 1;
+                    dir = m2 - 1;
+                }
             }
         }
 
@@ -170,32 +172,46 @@ double insercaoTernaria(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double shellSort(int vet[], int size){
+double shellSort(int vet[], int size, int* troc, int* compare) {
+    *compare = 0;
+    *troc = 0;
+
     clock_t inicio, fim;
-    double temp;
+    double tempo;
+
+    int h = 1, auxiliar, j;
+
+    while (h < size) {
+        h = 3 * h + 1;
+    }
 
     inicio = clock();
-    int h, auxiliar, j;
-    h = 1;  
-    while(h < size){
-        h = 3*h + 1;
-    }
-    while(h > 1){
-        h = h/3;
-        for(int i = h; i <= size; i++){
+
+    while (h > 1) {
+        h = h / 3;
+
+        for (int i = h; i < size; i++) {
             auxiliar = vet[i];
             j = i - h;
-            while((j >= 0) && (auxiliar < vet[j])){
-                vet[j + h] = vet[j];
-                j -= h;
+
+            while (j >= 0) {
+                (*compare)++;               
+                if (auxiliar < vet[j]) {
+                    vet[j + h] = vet[j];
+                    (*troc)++;                 
+                    j -= h;
+                } else {
+                    break;
+                }
             }
-            vet[j + h] = auxiliar;
+            vet[j + h] = auxiliar;             
         }
     }
-    fim = clock();
 
-    temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
-    return temp;
+    fim = clock();
+    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
+
+    return tempo;
 }
 
 double selectionSort(int vet[], int size){

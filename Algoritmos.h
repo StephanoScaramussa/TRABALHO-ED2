@@ -6,7 +6,7 @@ double bolhaParada(int vet[], int size, int* troc, int* compare);
 double insercaoDireta(int vet[], int size, int* troc, int* compare);
 double insercaoBinaria(int vet[], int size, int* troc, int* compare);
 double insercaoTernaria(int vet[], int size, int* troc, int* compare);
-double shellSort(int vet[], int size);
+double shellSort(int vet[], int size, int* troc, int* compare);
 double selectionSort(int vet[], int size);
 double heapSort(int vet[], int size);
 void criaHeap(int vet[], int ini, int fim);
