@@ -214,23 +214,30 @@ double shellSort(int vet[], int size, int* troc, int* compare) {
     return tempo;
 }
 
-double selectionSort(int vet[], int size){
+double selectionSort(int vet[], int size, int* troc, int* compare){
+    *troc = 0;
+    *compare = 0;
+
     clock_t inicio, fim;
     double temp;
 
     inicio = clock();
-    int menor, auxiliar;
-    for(int i = 0; i < size - 1; i++){
-        menor = i;
-        for(int j = i + 1; j < size; j ++){
-            if(vet[j] < vet[menor]){
-                menor = j;
+    int min, aux;
+    for (int i = 0; i < size - 1; i++) {
+        min = i;
+
+        for (int j = i + 1; j < size; j++) {
+            *compare += 1;              
+            if (vet[j] < vet[min]) {
+                min = j;
             }
         }
-        if (i != menor){
-            auxiliar = vet[i];
-            vet[i] = vet[menor];
-            vet[menor] = auxiliar;
+
+        if (min != i) {
+            aux = vet[i];
+            vet[i] = vet[min];
+            vet[min] = aux;
+            *troc += 1;                   
         }
     }
     fim = clock();

@@ -7,7 +7,7 @@ double insercaoDireta(int vet[], int size, int* troc, int* compare);
 double insercaoBinaria(int vet[], int size, int* troc, int* compare);
 double insercaoTernaria(int vet[], int size, int* troc, int* compare);
 double shellSort(int vet[], int size, int* troc, int* compare);
-double selectionSort(int vet[], int size);
+double selectionSort(int vet[], int size, int* troc, int* compare);
 double heapSort(int vet[], int size);
 void criaHeap(int vet[], int ini, int fim);
 int calculoMediana(int vet[], int esq, int dir);
