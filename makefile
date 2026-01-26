@@ -1,14 +1,13 @@
-all: main
-	./main
+all: compila
+compila: main.o Algoritmos.o
+	gcc main.o Algoritmos.o -o result.exe
+	./result.exe
 
-main: main.o Algoritmos.o
-	gcc main.o Algoritmos.o -lm -o main
+main.o: main.c
+	gcc -c main.c
 
-main.o: main.c Algoritmos.h
-	gcc -Wall -Werror -c main.c
-
-Algoritmos.o: Algoritmos.c Algoritmos.h
-	gcc -Wall -Werror -c Algoritmos.c
+Algoritmos.o: Algoritmos.c
+	gcc -c Algoritmos.c
 
 clean: 
-	rm -f *.o main
+	rm main.o Algoritmos.o result.exe

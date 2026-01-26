@@ -3,8 +3,70 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 
-double bolha(int vet[], int size, int* troc, int* compare){
+int* geraVetorAleatorio(int size){
+    int *vet = (int*) malloc(size * sizeof(int));
+    for(int i=0; i<size; i++){
+        vet[i] = rand() % 100;
+    }
+    return vet;
+}
+
+int* geraVetorCresc(int size){
+    srand(time(NULL));
+    int *vet = (int*) malloc(size * sizeof(int));
+    vet[0] = rand() % 10; 
+    for (int i = 1; i < size; i++) {
+        vet[i] = vet[i-1] + (rand() % 10) + 1;
+    }  
+    return vet;
+}
+
+int* geraVetorDecresc(int size) {
+    srand(time(NULL));
+    int *vet = (int*) malloc(size * sizeof(int));
+    vet[0] = 9999999 + (rand() % 10); 
+    for (int i = 1; i < size; i++) {
+        vet[i] = vet[i-1] - (rand() % 10) - 1;
+    }
+    return vet;
+}
+
+void geraMatriz(int *matriz[ORDS][TAMS]) {
+    int tamanhos[3] = {TAM1, TAM2, TAM3};
+    for (int j = 0; j < 3; j++) {
+        matriz[0][j] = geraVetorAleatorio(tamanhos[j]);
+        matriz[1][j] = geraVetorCresc(tamanhos[j]);
+        matriz[2][j] = geraVetorDecresc(tamanhos[j]);
+    }
+}
+
+void copiaMatriz(int *destino[ORDS][TAMS], int *origem[ORDS][TAMS]) {
+    int tams[3] = {TAM1, TAM2, TAM3};
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int N = tams[j];
+            destino[i][j] = (int*) malloc(N * sizeof(int));
+            if (destino[i][j] != NULL && origem[i][j] != NULL) {
+                memcpy(destino[i][j], origem[i][j], N * sizeof(int));
+            }
+        }
+    }
+}
+
+void liberaMatriz(int *matriz[ORDS][TAMS]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] != NULL) {
+                free(matriz[i][j]);
+                matriz[i][j] = NULL;
+            }
+        }
+    }
+}
+
+double bolha(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
     clock_t inicio, fim;
@@ -29,7 +91,7 @@ double bolha(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double bolhaParada(int vet[], int size, int* troc, int* compare){
+double bolhaParada(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
     clock_t inicio, fim;
@@ -60,7 +122,7 @@ double bolhaParada(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double insercaoDireta(int vet[], int size, int* troc, int* compare){
+double insercaoDireta(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
     clock_t inicio, fim;
@@ -89,7 +151,7 @@ double insercaoDireta(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double insercaoBinaria(int vet[], int size, int* troc, int* compare){
+double insercaoBinaria(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
     clock_t inicio, fim;
@@ -125,7 +187,7 @@ double insercaoBinaria(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double insercaoTernaria(int vet[], int size, int* troc, int* compare){
+double insercaoTernaria(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
 
@@ -172,7 +234,7 @@ double insercaoTernaria(int vet[], int size, int* troc, int* compare){
     return temp;
 }
 
-double shellSort(int vet[], int size, int* troc, int* compare) {
+double shellSort(int vet[], int size, unsigned long* troc, unsigned long* compare) {
     *compare = 0;
     *troc = 0;
 
@@ -214,7 +276,7 @@ double shellSort(int vet[], int size, int* troc, int* compare) {
     return tempo;
 }
 
-double selectionSort(int vet[], int size, int* troc, int* compare){
+double selectionSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
 
@@ -555,4 +617,25 @@ double bucketSort(int vet[], int size) {
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
 
     return temp;
+}
+
+void mostrarMenu() {
+    printf("\n=== MENU DE ALGORITMOS DE ORDENACAO ===\n");
+    printf("1.  Bolha\n");
+    printf("2.  Selection Sort\n");
+    printf("3.  Insertion Sort\n");
+    printf("4.  Merge Sort\n");
+    printf("5.  Quick Sort\n");
+    printf("6.  Heap Sort\n");
+    printf("7.  Shell Sort\n");
+    printf("8.  Counting Sort\n");
+    printf("9.  Radix Sort\n");
+    printf("10. Bucket Sort\n");
+    printf("11. Cocktail Shaker Sort\n");
+    printf("12. Gnome Sort\n");
+    printf("13. Comb Sort\n");
+    printf("14. TimSort (ou IntroSort)\n");
+    printf("0.  Sair\n");
+    printf("=======================================\n");
+    printf("Escolha uma opcao: ");
 }
