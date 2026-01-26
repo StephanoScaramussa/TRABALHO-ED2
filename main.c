@@ -1,4 +1,5 @@
 #include "Algoritmos.h"
+#include "GeradorNumeros.h"
 
 int main() {
     int* dados[ORDS][TAMS];
@@ -22,7 +23,7 @@ int main() {
                     printf("Escolha: ");
                     scanf("%d", &opcao2);
                     switch(opcao2){
-                        case 1:
+                        case 1:{
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
@@ -49,6 +50,7 @@ int main() {
                             fclose(arquivo);
                             opcao2 = 0;
                             break;
+                        }
                         case 2: {
                             int opcao3, size_;
                             printf("\nTamanho do vetor a ser gerado: ");

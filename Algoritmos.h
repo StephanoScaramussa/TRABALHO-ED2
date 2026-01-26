@@ -1,15 +1,16 @@
 #ifndef ALGORITMOS_H
 #define ALGORITMOS_H
-#define TAM1 10000
-#define TAM2 100000
-#define TAM3 500000
-#define ORDS 3
-#define TAMS 3
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
+
+#define TAM1 10000
+#define TAM2 100000
+#define TAM3 500000
+#define ORDS 3
+#define TAMS 3
 
 void geraNumeros(int size);
 int* geraVetorAleatorio(int size);

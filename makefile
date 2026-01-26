@@ -1,7 +1,8 @@
-all: compila
-compila: main.o Algoritmos.o
-	gcc main.o Algoritmos.o -o result.exe
-	./result.exe
+all: main
+	./main
+
+main: main.o Algoritmos.o GeradorNumeros.o
+	gcc main.o Algoritmos.o GeradorNumeros.o -o main
 
 main.o: main.c
 	gcc -c main.c
@@ -9,5 +10,8 @@ main.o: main.c
 Algoritmos.o: Algoritmos.c
 	gcc -c Algoritmos.c
 
-clean: 
-	rm main.o Algoritmos.o result.exe saida.txt
+GeradorNumeros.o: GeradorNumeros.c
+	gcc -c GeradorNumeros.c
+
+clean:
+	rm -f main main.o Algoritmos.o GeradorNumeros.o
