@@ -1,8 +1,9 @@
 #include "Algoritmos.h"
 
 int main() {
-    int *dados[ORDS][TAMS];
+    int* dados[ORDS][TAMS];
     int* copia[ORDS][TAMS];
+    unsigned long troca = 0, comparacao = 0;
     geraMatriz(dados);
     int opcao;
     do {
@@ -11,11 +12,11 @@ int main() {
         scanf("%d", &opcao);
 
         switch (opcao) {
-            case 1:{ //bolha
+            case 1:{ // Algoritmo Bolha
                 int opcao2;
-                do{
+                do {
                     printf("\n=== ALGORITMOS RELACIONADOS ===\n");
-                    printf("1. Gerar tabela de todos os testes(demorado!)\n");
+                    printf("1. Gerar tabela de todos os testes (demorado!)\n");
                     printf("2. Gerar um vetor de tamanho predefinido\n");
                     printf("0. Voltar ao Menu Principal\n");
                     printf("Escolha: ");
@@ -24,7 +25,6 @@ int main() {
                         case 1:
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
-                            unsigned long troca = 0, comparacao = 0;
                             double tempo;
                             FILE *arquivo = fopen("bubble_sort.csv", "w");
                             if (arquivo == NULL) {
@@ -49,18 +49,75 @@ int main() {
                             fclose(arquivo);
                             opcao2 = 0;
                             break;
-                        case 2:
-
-                            opcao2=0;
+                        case 2: {
+                            int opcao3, size_;
+                            printf("\nTamanho do vetor a ser gerado: ");
+                            scanf("%d", &size_);
+                            printf("1 - Aleatorio\n2 - Crescente\n3 - Decrescente\n0 - Cancelar\n");
+                            printf("Escolha: ");
+                            scanf("%d", &opcao3);
+                            switch(opcao3){
+                                case 1: {
+                                    int *vet = geraVetorAleatorio(size_);
+                                    double t = bolha(vet, size_, &troca, &comparacao);
+                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    if (arquivo) {
+                                        fprintf(arquivo, "Bolha - Aleatorio %d:\n", size_);
+                                        for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
+                                        fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
+                                        fclose(arquivo);
+                                        printf("Arquivo gerado com sucesso!\n");
+                                    }
+                                    free(vet);
+                                    opcao2 = 0;
+                                    break;
+                                }
+                                case 2: {
+                                    int *vet = geraVetorCresc(size_);
+                                    double t = bolha(vet, size_, &troca, &comparacao);
+                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    if (arquivo) {
+                                        fprintf(arquivo, "Bolha - Crescente %d:\n", size_);
+                                        for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
+                                        fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
+                                        fclose(arquivo);
+                                        printf("Arquivo gerado com sucesso!\n");
+                                    }
+                                    free(vet);
+                                    opcao2 = 0;
+                                    break;
+                                }
+                                case 3: {
+                                    int *vet = geraVetorDecresc(size_);
+                                    double t = bolha(vet, size_, &troca, &comparacao);
+                                    
+                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    if (arquivo) {
+                                        fprintf(arquivo, "Bolha - Decrescente %d:\n", size_);
+                                        for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
+                                        fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
+                                        fclose(arquivo);
+                                        printf("Arquivo gerado com sucesso!\n");
+                                    }
+                                    free(vet);
+                                    opcao2 = 0;
+                                    break;
+                                }
+                                case 0:
+                                    printf("Cancelando...\n");
+                                    break;
+                                default:
+                                    printf("Opcao invalida!\n");
+                            }
                             break;
+                        }
                         case 0:
-                            printf("\nVoltando ao menu principal...\n");
+                            printf("Voltando...\n");
                             break;
                         default:
-                            printf("\nOpcao invalida! Tente novamente.\n");
+                            printf("Opcao invalida!\n");
                     }
-                }while(opcao2!=0);
-                
+                } while(opcao2 != 0);
                 break;
             }
             case 2:

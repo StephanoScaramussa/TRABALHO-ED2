@@ -10,4 +10,4 @@ Algoritmos.o: Algoritmos.c
 	gcc -c Algoritmos.c
 
 clean: 
-	rm main.o Algoritmos.o result.exe
+	rm main.o Algoritmos.o result.exe saida.txt

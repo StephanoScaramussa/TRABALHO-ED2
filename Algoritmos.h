@@ -11,6 +11,7 @@
 #include <time.h>
 #include <string.h>
 
+void geraNumeros(int size);
 int* geraVetorAleatorio(int size);
 int* geraVetorCresc(int size);
 int* geraVetorDecresc(int size);
