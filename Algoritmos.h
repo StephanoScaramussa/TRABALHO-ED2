@@ -19,8 +19,8 @@ double insercaoBinaria(int vet[], int size, unsigned long* troc, unsigned long* 
 double insercaoTernaria(int vet[], int size, unsigned long* troc, unsigned long* compare);
 double shellSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
 double selectionSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
-double heapSort(int vet[], int size);
-void criaHeap(int vet[], int ini, int fim);
+double heapSort(int vet[], int size, int * troc, int* compare);
+void criaHeap(int vet[], int ini, int fim, int *troc, int* compare);
 int calculoMediana(int vet[], int esq, int dir);
 double quickSortCentro(int vet[], int esq, int dir);
 double quickSortFim(int vet[], int esq, int dir);

@@ -1,5 +1,4 @@
 #include "Algoritmos.h"
-#include <stdio.h>
 
 int main() {
     int *dados[ORDS][TAMS];
@@ -25,7 +24,7 @@ int main() {
                         case 1:
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
-                            unsigned long troca, comparacao;
+                            unsigned long troca = 0, comparacao = 0;
                             double tempo;
                             FILE *arquivo = fopen("bubble_sort.csv", "w");
                             if (arquivo == NULL) {
