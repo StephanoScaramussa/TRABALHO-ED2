@@ -19,7 +19,7 @@ int ValidaInput(const char* str, int ini, int fim){
     int numop = 0;
     
     while(1){
-        printf(str);
+        printf("%s", str);
         fgets(op, sizeof(op), stdin);
         system("cls");
 
