@@ -12,10 +12,6 @@
 #define ORDS 3
 #define TAMS 3
 
-void geraNumeros(int size);
-int* geraVetorAleatorio(int size);
-int* geraVetorCresc(int size);
-int* geraVetorDecresc(int size);
 void geraMatriz(int *matriz[ORDS][TAMS]);
 void copiaMatriz(int *destino[ORDS][TAMS], int *origem[ORDS][TAMS]);
 void liberaMatriz(int *matriz[ORDS][TAMS]);

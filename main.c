@@ -1,5 +1,6 @@
 #include "Algoritmos.h"
 #include "GeradorNumeros.h"
+#include "InputDados.h"
 
 int main() {
     int* dados[ORDS][TAMS];

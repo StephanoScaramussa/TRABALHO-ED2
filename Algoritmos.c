@@ -1,39 +1,5 @@
 #include "Algoritmos.h"
 
-
-void geraMatriz(int *matriz[ORDS][TAMS]) {
-    int tamanhos[3] = {TAM1, TAM2, TAM3};
-    for (int j = 0; j < 3; j++) {
-        matriz[0][j] = geraVetorAleatorio(tamanhos[j]);
-        matriz[1][j] = geraVetorCresc(tamanhos[j]);
-        matriz[2][j] = geraVetorDecresc(tamanhos[j]);
-    }
-}
-
-void copiaMatriz(int *destino[ORDS][TAMS], int *origem[ORDS][TAMS]) {
-    int tams[3] = {TAM1, TAM2, TAM3};
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            int N = tams[j];
-            destino[i][j] = (int*) malloc(N * sizeof(int));
-            if (destino[i][j] != NULL && origem[i][j] != NULL) {
-                memcpy(destino[i][j], origem[i][j], N * sizeof(int));
-            }
-        }
-    }
-}
-
-void liberaMatriz(int *matriz[ORDS][TAMS]) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (matriz[i][j] != NULL) {
-                free(matriz[i][j]);
-                matriz[i][j] = NULL;
-            }
-        }
-    }
-}
-
 double bolha(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;

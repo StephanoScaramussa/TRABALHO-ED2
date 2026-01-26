@@ -15,6 +15,5 @@ void geraNumeros(int size);
 int* geraVetorAleatorio(int size);
 int* geraVetorCresc(int size);
 int* geraVetorDecresc(int size);
-void geraMatriz(int *matriz[ORDS][TAMS]);
 
 #endif
