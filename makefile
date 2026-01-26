@@ -17,4 +17,4 @@ InputDados.o: InputDados.c
 	gcc -c InputDados.c
 
 clean:
-	rm -f main main.o Algoritmos.o GeradorNumeros.o InputDados.o
+	rm -f main main.o Algoritmos.o GeradorNumeros.o InputDados.o saida.txt 

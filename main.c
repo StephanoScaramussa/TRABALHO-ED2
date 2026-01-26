@@ -10,19 +10,15 @@ int main() {
     int opcao;
     do {
         copiaMatriz(copia, dados);
-        mostrarMenu();
-        scanf("%d", &opcao);
+        opcao = ValidaInput("\n=== MENU DE ALGORITMOS DE ORDENACAO ===\n1.  Bolha\n2.  Selection Sort\n3.  Insertion Sort\n4.  Merge Sort\n5.  Quick Sort\n6.  Heap Sort\n7.  Shell Sort\n8.  Counting Sort\n9.  Radix Sort\n10. Bucket Sort\n11. Cocktail Shaker Sort\n12. Gnome Sort\n13. Comb Sort\n14. TimSort (ou IntroSort)\n0.  Sair\n=======================================\nEscolha uma opcao: ", 0, 14);
+        //mostrarMenu();
+        //scanf("%d", &opcao);
 
         switch (opcao) {
             case 1:{ // Algoritmo Bolha
                 int opcao2;
                 do {
-                    printf("\n=== ALGORITMOS RELACIONADOS ===\n");
-                    printf("1. Gerar tabela de todos os testes (demorado!)\n");
-                    printf("2. Gerar um vetor de tamanho predefinido\n");
-                    printf("0. Voltar ao Menu Principal\n");
-                    printf("Escolha: ");
-                    scanf("%d", &opcao2);
+                    opcao2 = ValidaInput("\n=== ALGORITMOS RELACIONADOS ===\n1. Gerar tabela de todos os testes (demorado!)\n2. Gerar um vetor de tamanho predefinido\n0. Voltar ao Menu Principal\nEscolha: ", 0, 2);
                     switch(opcao2){
                         case 1:{
                             int tams[3] = {TAM1, TAM2, TAM3};
@@ -54,11 +50,8 @@ int main() {
                         }
                         case 2: {
                             int opcao3, size_;
-                            printf("\nTamanho do vetor a ser gerado: ");
-                            scanf("%d", &size_);
-                            printf("1 - Aleatorio\n2 - Crescente\n3 - Decrescente\n0 - Cancelar\n");
-                            printf("Escolha: ");
-                            scanf("%d", &opcao3);
+                            size_ = ValidaInput("\nTamanho do vetor a ser gerado: ", 1, 1000000);
+                            opcao3 = ValidaInput("1 - Aleatorio\n2 - Crescente\n3 - Decrescente\n0 - Cancelar\nEscolha: ", 1, 3);
                             switch(opcao3){
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
