@@ -5,6 +5,11 @@
 #define TAM3 500000
 #define ORDS 3
 #define TAMS 3
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <string.h>
 
 int* geraVetorAleatorio(int size);
 int* geraVetorCresc(int size);
