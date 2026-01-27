@@ -352,7 +352,6 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, i
             }
         }
 
-        *compare += 1;
         while(*j > esq){
             compare += 1;
             if(dados[*j] > pivo){
