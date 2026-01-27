@@ -341,14 +341,25 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, i
     }
 
     while(*i <= *j){
-        *compare += 1;
-        while(dados[*i] < pivo && *i < dir){
-            (*i)++;
+
+        while(*i < dir){
+            *compare += 1;
+            if (dados[*i] < pivo ){
+                (*i)++;
+            }
+            else{
+                break;
+            }
         }
 
         *compare += 1;
-        while(dados[*j] > pivo && *j > esq){
-            (*j)--;
+        while(*j > esq){
+            compare += 1;
+            if(dados[*j] > pivo){
+                (*j)--;
+            }else{
+                break;
+            }
         }
 
         if(*i <= *j){
