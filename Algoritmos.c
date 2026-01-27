@@ -563,24 +563,3 @@ double bucketSort(int vet[], int size) {
 
     return temp;
 }
-
-void mostrarMenu() {
-    printf("\n=== MENU DE ALGORITMOS DE ORDENACAO ===\n");
-    printf("1.  Bolha\n");
-    printf("2.  Selection Sort\n");
-    printf("3.  Insertion Sort\n");
-    printf("4.  Merge Sort\n");
-    printf("5.  Quick Sort\n");
-    printf("6.  Heap Sort\n");
-    printf("7.  Shell Sort\n");
-    printf("8.  Counting Sort\n");
-    printf("9.  Radix Sort\n");
-    printf("10. Bucket Sort\n");
-    printf("11. Cocktail Shaker Sort\n");
-    printf("12. Gnome Sort\n");
-    printf("13. Comb Sort\n");
-    printf("14. TimSort (ou IntroSort)\n");
-    printf("0.  Sair\n");
-    printf("=======================================\n");
-    printf("Escolha uma opcao: ");
-}
