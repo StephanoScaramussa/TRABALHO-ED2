@@ -438,7 +438,7 @@ double quickSortMediana(int vet[], int esq, int dir, int* troc, int* compare){
     return temp;
 }
 
-void intercalarMarge(int vet[], int ini, int meio, int fim){
+void intercalarMarge(int vet[], int ini, int meio, int fim, int* troc, int* compare){
     int i = ini;
     int j = meio + 1;
     int k = 0;
@@ -446,24 +446,32 @@ void intercalarMarge(int vet[], int ini, int meio, int fim){
     int *tmp = (int*) malloc((fim - ini + 1) * sizeof(int));
 
     while (i <= meio || j <= fim) {
-        if (i == meio + 1)
+        *compare += 1;
+        if (i == meio + 1){
             tmp[k++] = vet[j++];
-        else if (j == fim + 1)
+            *troc += 1;
+        }else if(j == fim + 1){
             tmp[k++] = vet[i++];
-        else if (vet[j] < vet[i])
+            *troc += 1;
+        }else if(vet[j] < vet[i]){
             tmp[k++] = vet[j++];
-        else
+            *troc += 1;
+        }else{
             tmp[k++] = vet[i++];
+            *troc += 1;
+        }
+
     }
 
     for (i = ini, k = 0; i <= fim; i++, k++) {
+        *troc += 1;
         vet[i] = tmp[k];
     }
 
     free(tmp);
 }
 
-double margeSort(int vet[], int ini, int fim){
+double margeSort(int vet[], int ini, int fim, int* troc, int* compare){
     clock_t inicio, end;
     double temp;
     
@@ -472,9 +480,9 @@ double margeSort(int vet[], int ini, int fim){
     
     if (ini < fim){  
         meio = (ini + fim)/2;
-        margeSort(vet, ini, meio);
-        margeSort(vet, meio + 1, fim);
-        intercalarMarge(vet, ini, meio, fim);
+        margeSort(vet, ini, meio,troc, compare);
+        margeSort(vet, meio + 1, fim, troc, compare);
+        intercalarMarge(vet, ini, meio, fim, troc, compare) ;
     }
     end = clock();
     temp = (double)(end - inicio)/CLOCKS_PER_SEC;
@@ -492,27 +500,34 @@ int getMax(int vet[], int n){
     return max;
 }
 
-void countSort(int vet[], int n, int exp){
+void countSort(int vet[], int n, int exp, int* troc){
     int output[n];
+
     int i, count[10] = { 0 };
 
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; i++){
         count[(vet[i] / exp) % 10]++;
 
-    for (i = 1; i < 10; i++)
+    }
+
+    for (i = 1; i < 10; i++){
         count[i] += count[i - 1];
+    }
 
     for (i = n - 1; i >= 0; i--) {
         output[count[(vet[i] / exp) % 10] - 1] = vet[i];
         count[(vet[i] / exp) % 10]--;
+        *troc += 1;
     }
 
     for (i = 0; i < n; i++)
         vet[i] = output[i];
+        *troc += 1;
 }
 
 
-double radixSort(int vet[], int size){
+double radixSort(int vet[], int size, int* troc, int* compare){
+    *compare = 0;
     clock_t inicio, fim;
     double temp;
     
@@ -520,7 +535,7 @@ double radixSort(int vet[], int size){
     int maximo = getMax(vet, size);
 
     for(int exp = 1; maximo/exp > 0; exp *= 10){
-        countSort(vet, size, exp);
+        countSort(vet, size, exp, troc);
     }
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
@@ -528,9 +543,9 @@ double radixSort(int vet[], int size){
     return temp;
 }
 
-double bucketSort(int vet[], int size) {
+double bucketSort(int vet[], int size, int* troc, int* compare) {
     clock_t inicio, fim;
-    double temp;
+    double temp;    
     
     inicio = clock();
     int max = vet[0];
@@ -554,7 +569,7 @@ double bucketSort(int vet[], int size) {
 
     for (int i = 0; i < size; i++) {
         if (count[i] > 0) {
-            insercaoDireta(buckets[i], count[i], NULL, NULL);
+            insercaoDireta(buckets[i], count[i], troc, compare);
         }
     }
 
