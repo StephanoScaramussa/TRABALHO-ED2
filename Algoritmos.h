@@ -22,19 +22,19 @@ double insercaoBinaria(int vet[], int size, unsigned long* troc, unsigned long* 
 double insercaoTernaria(int vet[], int size, unsigned long* troc, unsigned long* compare);
 double shellSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
 double selectionSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
-double heapSort(int vet[], int size, int* troc, int* compare);
-void criaHeap(int vet[], int ini, int fim, int* troc, int* compare);
+double heapSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
+void criaHeap(int vet[], int ini, int fim, unsigned long* troc, unsigned long* compare);
 int calculoMediana(int vet[], int esq, int dir);
-double quickSortCentro(int vet[], int esq, int dir, int* troc, int* compare);
-double quickSortFim(int vet[], int esq, int dir, int* troc, int* compare);
-double quickSortMediana(int vet[], int esq, int dir, int* troc, int* compare);
-void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, int* troc, int* compare); 
+double quickSortCentro(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare);
+double quickSortFim(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare);
+double quickSortMediana(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare);
+void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, unsigned long* troc, unsigned long* compare); 
 double margeSort(int vet[], int ini, int fim);
 void intercalarMarge(int vet[], int ini, int meio, int fim);
 double radixSort(int vet[], int size);
 int getMax(int vet[], int n);
 void countSort(int vet[], int n, int exp);
-double bucketSort(int vet[], int size);
+double bucketSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
 void mostrarMenu();
 
 

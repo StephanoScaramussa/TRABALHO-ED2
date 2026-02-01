@@ -8,4 +8,9 @@ ALGORITMOS -> 500000;COMPARAÇÕES;TEMPO -> ALEATÓRIA, CRESCENTE, DECRESCENTE
 ***
 * Baseado em linguagem c
 ***
-* Análise de desempenhos dos algoritmos 
+* Análise de desempenhos dos algoritmos
+***
+* PC UTILIZADO PARA BENCHMARK:
+- AMD EPYC 7763 -> 1 nucleo 2 threads (VM)
+- 8 Gb ram
+- Ubunbtu 24.04.3 LTS

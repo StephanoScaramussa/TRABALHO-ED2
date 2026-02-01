@@ -242,7 +242,7 @@ double selectionSort(int vet[], int size, unsigned long* troc, unsigned long* co
     return temp;
 }
 
-void criaHeap(int vet[], int ini, int fim, int *troc, int* compare){
+void criaHeap(int vet[], int ini, int fim, unsigned long* troc, unsigned long* compare){
     int auxiliar = vet[ini];
     int j = ini*2 + 1;
 
@@ -266,7 +266,7 @@ void criaHeap(int vet[], int ini, int fim, int *troc, int* compare){
     vet[ini] = auxiliar;
 }
 
-double heapSort(int vet[], int size, int* troc, int* compare){
+double heapSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *troc = 0;
     *compare = 0;
 
@@ -319,7 +319,7 @@ int calculoMediana(int vet[], int esq, int dir){
     return vet[meio];
 }
 
-void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, int* troc, int* compare){
+void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, unsigned long* troc, unsigned long* compare){
     int pivo, aux;
     *i = esq;
     *j = dir;
@@ -332,10 +332,12 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, i
         break;
     //pivo = 2 (último) -> POSSÍVEL PIOR CASO O(n^2)
     case 2:
-        pivo = dados[esq];
+        pivo = dados[dir];
+        break;
     case 3:
     //pivo = 3 (mediana)
         pivo = calculoMediana(dados, esq, dir);
+        break;
     default:
         break;
     }
@@ -362,7 +364,7 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, i
     }
 }
 
-double quickSortCentro(int vet[], int esq, int dir, int *troc, int* compare){
+double quickSortCentro(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare){
     clock_t inicio, fim;
     double temp;
     
@@ -384,29 +386,32 @@ double quickSortCentro(int vet[], int esq, int dir, int *troc, int* compare){
     return temp;
 }
 
-double quickSortFim(int vet[], int esq, int dir, int* troc, int* compare){ 
+double quickSortFim(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare){ 
     clock_t inicio, fim;
     double temp;
-    
+
     inicio = clock();
-    int i, j;
 
-    //i e j como estão sendo passados como referência, receberam seus repectivos valores 
-    particaoQuick(vet, esq, dir, &i, &j, 2, troc, compare);
+    while (esq < dir) {
+        int i, j;
+        particaoQuick(vet, esq, dir, &i, &j, 2, troc, compare);
 
-    if(i < dir){
-        quickSortFim(vet, i, dir, troc, compare);
+        if (j - esq < dir - i) {
+            if (j > esq) quickSortFim(vet, esq, j, troc, compare);
+            esq = i;
+        } else {
+            if (i < dir) quickSortFim(vet, i, dir, troc, compare);
+            dir = j;
+        }
     }
-    if(j > esq){
-        quickSortFim(vet, esq, j, troc, compare);
-    }
+
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
 
     return temp;
 }
 
-double quickSortMediana(int vet[], int esq, int dir, int* troc, int* compare){ 
+double quickSortMediana(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare){ 
     clock_t inicio, fim;
     double temp;
     
@@ -518,7 +523,7 @@ double radixSort(int vet[], int size){
     return temp;
 }
 
-double bucketSort(int vet[], int size) {
+double bucketSort(int vet[], int size, unsigned long* troc, unsigned long* compare) {
     clock_t inicio, fim;
     double temp;
     
@@ -526,6 +531,7 @@ double bucketSort(int vet[], int size) {
     int max = vet[0];
 
     for (int i = 1; i < size; i++) {
+        (*compare)++;
         if (vet[i] > max)
             max = vet[i];
     }
@@ -544,7 +550,7 @@ double bucketSort(int vet[], int size) {
 
     for (int i = 0; i < size; i++) {
         if (count[i] > 0) {
-            insercaoDireta(buckets[i], count[i], NULL, NULL);
+            insercaoDireta(buckets[i], count[i], troc, compare);
         }
     }
 
