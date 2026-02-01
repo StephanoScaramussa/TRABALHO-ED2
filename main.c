@@ -21,7 +21,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("bubble_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/bubble_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -53,13 +53,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = bolha(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -68,13 +69,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = bolha(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -84,13 +86,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = bolha(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -122,7 +125,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("bubble_crit_parada.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/bubble_crit_parada.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -154,13 +157,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = bolhaParada(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha crit. de parada - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -169,13 +173,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = bolhaParada(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha crit. de parada - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -185,13 +190,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = bolhaParada(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Bolha crit. de parada - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -223,7 +229,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("insercao_direta.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/insercao_direta.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -255,13 +261,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = insercaoDireta(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao direta - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -270,13 +277,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = insercaoDireta(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao direta - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -286,13 +294,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = insercaoDireta(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao direta - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -324,7 +333,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("insercao_binaria.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/insercao_binaria.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -356,13 +365,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = insercaoBinaria(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao binaria - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -371,13 +381,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = insercaoBinaria(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao binaria - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -387,13 +398,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = insercaoBinaria(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao binaria - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -425,7 +437,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("insercao_ternaria.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/insercao_ternaria.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -457,13 +469,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = insercaoTernaria(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao ternaria - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -472,13 +485,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = insercaoTernaria(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao ternaria - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -488,13 +502,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = insercaoTernaria(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Insercao ternaria - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -526,7 +541,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("shell_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/shell_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -558,13 +573,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = shellSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Shell Sort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -573,13 +589,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = shellSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Shell Sort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -589,13 +606,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = shellSort(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Shell Sort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -627,7 +645,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("selection_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/selection_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -659,13 +677,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = selectionSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Selection Sort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -674,13 +693,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = selectionSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Selection Sort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -690,13 +710,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = selectionSort(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Selection Sort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -728,7 +749,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("heap_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/heap_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -760,13 +781,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = heapSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Heap Sort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -775,13 +797,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = heapSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Heap Sort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -791,13 +814,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = heapSort(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Heap Sort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -829,7 +853,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("quicksort_centro.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/quicksort_centro.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -862,13 +886,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = quickSortCentro(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "QuickSort Centro - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -877,13 +902,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = quickSortCentro(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "QuickSort Centro - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -893,13 +919,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = quickSortCentro(vet, 0, size_-1, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "QuickSort Centro - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -931,7 +958,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("quicksort_fim.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/quicksort_fim.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -963,13 +990,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = quickSortFim(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Fim - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -978,13 +1006,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = quickSortFim(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Fim - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -994,13 +1023,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = quickSortFim(vet, 0, size_-1, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Fim - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1032,7 +1062,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("quicksort_mediana.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/quicksort_mediana.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -1064,13 +1094,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = quickSortMediana(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Mediana - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1079,13 +1110,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = quickSortMediana(vet, 0, size_-1, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Mediana - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1095,13 +1127,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = quickSortMediana(vet, 0, size_-1, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "Quicksort Mediana - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1133,7 +1166,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("merge_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/merge_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -1146,7 +1179,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
-                                    tempo = margeSort(copia[i][j], 0, tams[j]-1);
+                                    tempo = margeSort(copia[i][j], 0, tams[j]-1, &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
                                     fprintf(arquivo, ";%.3f;%lu;%lu", tempo, troca, comparacao);
@@ -1164,14 +1197,15 @@ int main() {
                             switch(opcao3){
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
-                                    double t = margeSort(vet, 0, size_-1);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    double t = margeSort(vet, 0, size_-1, &troca, &comparacao);
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "MergeSort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1179,14 +1213,15 @@ int main() {
                                 }
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
-                                    double t = margeSort(vet, 0, size_-1);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    double t = margeSort(vet, 0, size_-1, &troca, &comparacao);
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "MergeSort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1194,15 +1229,16 @@ int main() {
                                 }
                                 case 3: {
                                     int *vet = geraVetorDecresc(size_);
-                                    double t = margeSort(vet, 0, size_-1);
+                                    double t = margeSort(vet, 0, size_-1, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "MergeSort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1234,7 +1270,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("radix_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/radix_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -1247,7 +1283,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
-                                    tempo = radixSort(copia[i][j], tams[j]);
+                                    tempo = radixSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
                                     fprintf(arquivo, ";%.3f;%lu;%lu", tempo, troca, comparacao);
@@ -1265,14 +1301,15 @@ int main() {
                             switch(opcao3){
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
-                                    double t = radixSort(vet, size_);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    double t = radixSort(vet, size_, &troca, &comparacao);
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "RadixSort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1280,14 +1317,15 @@ int main() {
                                 }
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
-                                    double t = radixSort(vet, size_);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    double t = radixSort(vet, size_, &troca, &comparacao);
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "RadixSort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1295,15 +1333,16 @@ int main() {
                                 }
                                 case 3: {
                                     int *vet = geraVetorDecresc(size_);
-                                    double t = radixSort(vet, size_);
+                                    double t = radixSort(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "RadixSort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1335,7 +1374,7 @@ int main() {
                             int tams[3] = {TAM1, TAM2, TAM3};
                             char *tipos[3] = {"Aleatorio", "Crescente", "Decrescente"};
                             double tempo;
-                            FILE *arquivo = fopen("bucket_sort.csv", "w");
+                            FILE *arquivo = fopen("arquivos_saida/bucket_sort.csv", "w");
                             if (arquivo == NULL) {
                                 printf("Erro ao criar arquivo CSV!\n");
                                 break;
@@ -1367,13 +1406,14 @@ int main() {
                                 case 1: {
                                     int *vet = geraVetorAleatorio(size_);
                                     double t = bucketSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "BucketSort - Aleatorio %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1382,13 +1422,14 @@ int main() {
                                 case 2: {
                                     int *vet = geraVetorCresc(size_);
                                     double t = bucketSort(vet, size_, &troca, &comparacao);
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "BucketSort - Crescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;
@@ -1398,13 +1439,14 @@ int main() {
                                     int *vet = geraVetorDecresc(size_);
                                     double t = bucketSort(vet, size_, &troca, &comparacao);
                                     
-                                    FILE *arquivo = fopen("saida.txt", "w");
+                                    FILE *arquivo = fopen("arquivos_saida/saida.txt", "w");
                                     if (arquivo) {
                                         fprintf(arquivo, "BucketSort - Decrescente %d:\n", size_);
                                         for(int i=0; i<size_; i++) fprintf(arquivo, "%d\n", vet[i]);
                                         fprintf(arquivo, "Tempo: %.3f | Trocas: %lu | Comp: %lu", t, troca, comparacao);
                                         fclose(arquivo);
                                         printf("Arquivo gerado com sucesso!\n");
+                                        system("sleep 2");
                                     }
                                     free(vet);
                                     opcao2 = 0;

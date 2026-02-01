@@ -21,6 +21,7 @@ int ValidaInput(const char* str, int ini, int fim){
     while(1){
         printf("%s", str);
         fgets(op, sizeof(op), stdin);
+        system("clear");
         system("cls");
 
         op[strcspn(op, "\n")] = 0;

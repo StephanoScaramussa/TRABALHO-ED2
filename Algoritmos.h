@@ -31,9 +31,9 @@ double quickSortMediana(int vet[], int esq, int dir, unsigned long* troc, unsign
 void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, unsigned long* troc, unsigned long* compare); 
 double margeSort(int vet[], int ini, int fim, unsigned long* troc, unsigned long* compare);
 void intercalarMarge(int vet[], int ini, int meio, int fim, unsigned long* troc, unsigned long* compare);
-double radixSort(int vet[], int size);
+double radixSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
 int getMax(int vet[], int n);
-void countSort(int vet[], int n, int exp);
+void countSort(int vet[], int n, int exp, unsigned long* troc);
 double bucketSort(int vet[], int size, unsigned long* troc, unsigned long* compare);
 void mostrarMenu();
 

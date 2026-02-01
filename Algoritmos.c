@@ -355,7 +355,7 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, u
         }
 
         while(*j > esq){
-            compare += 1;
+            *compare += 1;
             if(dados[*j] > pivo){
                 (*j)--;
             }else{
@@ -377,19 +377,22 @@ void particaoQuick(int* dados, int esq, int dir, int *i, int *j, int posiPivo, u
 double quickSortCentro(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare){
     clock_t inicio, fim;
     double temp;
-    
+
     inicio = clock();
-    int i, j;
 
-    //i e j como estão sendo passados como referência, receberam seus repectivos valores 
-    particaoQuick(vet, esq, dir, &i, &j, 1, troc, compare);
+    while (esq < dir) {
+        int i, j;
+        particaoQuick(vet, esq, dir, &i, &j, 1, troc, compare);
 
-    if(i < dir){
-        quickSortCentro(vet, i, dir, troc, compare);
+        if (j - esq < dir - i) {
+            if (j > esq) quickSortCentro(vet, esq, j, troc, compare);
+            esq = i;
+        } else {
+            if (i < dir) quickSortCentro(vet, i, dir, troc, compare);
+            dir = j;
+        }
     }
-    if(j > esq){
-        quickSortCentro(vet, esq, j, troc, compare);
-    }
+
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
 
@@ -424,26 +427,29 @@ double quickSortFim(int vet[], int esq, int dir, unsigned long* troc, unsigned l
 double quickSortMediana(int vet[], int esq, int dir, unsigned long* troc, unsigned long* compare){ 
     clock_t inicio, fim;
     double temp;
-    
+
     inicio = clock();
-    int i, j;
 
-    //i e j como estão sendo passados como referência, receberam seus repectivos valores 
-    particaoQuick(vet, esq, dir, &i, &j, 3, troc, compare);
+    while (esq < dir) {
+        int i, j;
+        particaoQuick(vet, esq, dir, &i, &j, 3, troc, compare);
 
-    if(i < dir){
-        quickSortMediana(vet, i, dir, troc, compare);
+        if (j - esq < dir - i) {
+            if (j > esq) quickSortMediana(vet, esq, j, troc, compare);
+            esq = i;
+        } else {
+            if (i < dir) quickSortMediana(vet, i, dir, troc, compare);
+            dir = j;
+        }
     }
-    if(j > esq){
-        quickSortMediana(vet, esq, j, troc, compare);
-    }
+
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
 
     return temp;
 }
 
-void intercalarMarge(int vet[], int ini, int meio, int fim, int* troc, int* compare){
+void intercalarMarge(int vet[], int ini, int meio, int fim, unsigned long* troc, unsigned long* compare){
     int i = ini;
     int j = meio + 1;
     int k = 0;
@@ -476,7 +482,7 @@ void intercalarMarge(int vet[], int ini, int meio, int fim, int* troc, int* comp
     free(tmp);
 }
 
-double margeSort(int vet[], int ini, int fim, int* troc, int* compare){
+double margeSort(int vet[], int ini, int fim, unsigned long* troc, unsigned long* compare){
     clock_t inicio, end;
     double temp;
     
@@ -505,7 +511,7 @@ int getMax(int vet[], int n){
     return max;
 }
 
-void countSort(int vet[], int n, int exp, int* troc){
+void countSort(int vet[], int n, int exp, unsigned long* troc){
     int output[n];
 
     int i, count[10] = { 0 };
@@ -522,16 +528,17 @@ void countSort(int vet[], int n, int exp, int* troc){
     for (i = n - 1; i >= 0; i--) {
         output[count[(vet[i] / exp) % 10] - 1] = vet[i];
         count[(vet[i] / exp) % 10]--;
-        *troc += 1;
+        (*troc) += 1;
     }
 
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; i++) {
         vet[i] = output[i];
-        *troc += 1;
+        (*troc) += 1;
+    }
 }
 
 
-double radixSort(int vet[], int size, int* troc, int* compare){
+double radixSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
     *compare = 0;
     clock_t inicio, fim;
     double temp;
@@ -550,45 +557,71 @@ double radixSort(int vet[], int size, int* troc, int* compare){
 
 double bucketSort(int vet[], int size, unsigned long* troc, unsigned long* compare) {
     clock_t inicio, fim;
-    double temp;    
-    
-    inicio = clock();
-    int max = vet[0];
+    double temp;
 
+    inicio = clock();
+
+    if (size <= 1) {
+        fim = clock();
+        return (double)(fim - inicio)/CLOCKS_PER_SEC;
+    }
+
+    int max = vet[0];
     for (int i = 1; i < size; i++) {
         (*compare)++;
         if (vet[i] > max)
             max = vet[i];
     }
 
-    int **buckets = (int **)malloc(size * sizeof(int *));
     int *count = (int *)calloc(size, sizeof(int));
+    if (count == NULL) return 0.0;
 
     for (int i = 0; i < size; i++) {
-        buckets[i] = (int *)malloc(size * sizeof(int));
+        int indice = (int)((long long)size * vet[i] / (max + 1));
+        if (indice < 0) indice = 0;
+        if (indice >= size) indice = size - 1;
+        count[indice]++;
     }
 
-    for (int i = 0; i < size; i++) {
-        int indice = (size * vet[i]) / (max + 1);
-        buckets[indice][count[indice]++] = vet[i];
-    }
+    int **buckets = (int **)malloc(size * sizeof(int *));
+    if (buckets == NULL) { free(count); return 0.0; }
 
     for (int i = 0; i < size; i++) {
         if (count[i] > 0) {
-            insercaoDireta(buckets[i], count[i], troc, compare);
+            buckets[i] = (int *)malloc(count[i] * sizeof(int));
+            if (buckets[i] == NULL) {
+                for (int j = 0; j < i; j++) if (count[j] > 0) free(buckets[j]);
+                free(buckets);
+                free(count);
+                return 0.0;
+            }
+        } else {
+            buckets[i] = NULL;
         }
+        count[i] = 0;
+    }
+
+    for (int i = 0; i < size; i++) {
+        int indice = (int)((long long)size * vet[i] / (max + 1));
+        if (indice < 0) indice = 0;
+        if (indice >= size) indice = size - 1;
+        buckets[indice][count[indice]++] = vet[i];
     }
 
     int k = 0;
     for (int i = 0; i < size; i++) {
-        for (int j = 0; j < count[i]; j++) {
-            vet[k++] = buckets[i][j];
+        if (count[i] > 0) {
+            insercaoDireta(buckets[i], count[i], troc, compare);
+            for (int j = 0; j < count[i]; j++) {
+                vet[k++] = buckets[i][j];
+            }
+            free(buckets[i]);
         }
-        free(buckets[i]);
     }
 
     free(buckets);
     free(count);
+
     fim = clock();
     temp = (double)(fim - inicio)/CLOCKS_PER_SEC;
 
