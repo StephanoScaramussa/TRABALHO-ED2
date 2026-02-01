@@ -1,0 +1,4 @@
+Tamanho;Aleatorio_Tempo(s);Aleatorio_Trocas;Aleatorio_Comp;Crescente_Tempo(s);Crescente_Trocas;Crescente_Comp;Decrescente_Tempo(s);Decrescente_Trocas;Decrescente_Comp
+10000;0.006;46347;139120;0.003;52251;262750;0.003;63154;386392
+100000;0.055;692280;2088756;0.045;757815;3657701;0.046;873348;5226661
+500000;0.279;4593973;14978142;0.185;4856116;23953873;0.216;5368257;32929621
