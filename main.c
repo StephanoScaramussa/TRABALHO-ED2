@@ -34,6 +34,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = bolha(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -138,6 +139,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = bolhaParada(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -242,6 +244,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = insercaoDireta(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -346,6 +349,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = insercaoBinaria(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -450,6 +454,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = insercaoTernaria(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -554,6 +559,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = shellSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -658,6 +664,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = selectionSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -762,6 +769,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = heapSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -866,6 +874,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
 
                                     tempo = quickSortCentro(copia[i][j], 0, tams[j]-1, &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
@@ -971,6 +980,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = quickSortFim(copia[i][j], 0, tams[j]-1, &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -1075,6 +1085,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = quickSortMediana(copia[i][j], 0, tams[j]-1, &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -1179,6 +1190,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = margeSort(copia[i][j], 0, tams[j]-1, &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -1283,6 +1295,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = radixSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);
@@ -1387,6 +1400,7 @@ int main() {
                             for (int j = 0; j < 3; j++) {
                                 fprintf(arquivo, "%d", tams[j]);
                                 for (int i = 0; i < 3; i++) {
+                                    unsigned long troca = 0, comparacao = 0;
                                     tempo = bucketSort(copia[i][j], tams[j], &troca, &comparacao);
                                     printf("\n[%s] - Tamanho %d:\n", tipos[i], tams[j]);
                                     printf("Tempo: %.4f s | Trocas: %lu | Comp: %lu\n", tempo, troca, comparacao);

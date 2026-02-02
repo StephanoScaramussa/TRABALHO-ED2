@@ -1,8 +1,6 @@
 #include "Algoritmos.h"
 
 double bolha(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -26,8 +24,6 @@ double bolha(int vet[], int size, unsigned long* troc, unsigned long* compare){
 }
 
 double bolhaParada(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -57,8 +53,6 @@ double bolhaParada(int vet[], int size, unsigned long* troc, unsigned long* comp
 }
 
 double insercaoDireta(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -86,8 +80,6 @@ double insercaoDireta(int vet[], int size, unsigned long* troc, unsigned long* c
 }
 
 double insercaoBinaria(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
     clock_t inicio, fim;
     double temp;
 
@@ -122,8 +114,6 @@ double insercaoBinaria(int vet[], int size, unsigned long* troc, unsigned long* 
 }
 
 double insercaoTernaria(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
 
     clock_t inicio, fim;
     double temp;
@@ -169,8 +159,6 @@ double insercaoTernaria(int vet[], int size, unsigned long* troc, unsigned long*
 }
 
 double shellSort(int vet[], int size, unsigned long* troc, unsigned long* compare) {
-    *compare = 0;
-    *troc = 0;
 
     clock_t inicio, fim;
     double tempo;
@@ -211,8 +199,6 @@ double shellSort(int vet[], int size, unsigned long* troc, unsigned long* compar
 }
 
 double selectionSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
 
     clock_t inicio, fim;
     double temp;
@@ -267,8 +253,6 @@ void criaHeap(int vet[], int ini, int fim, unsigned long* troc, unsigned long* c
 }
 
 double heapSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *troc = 0;
-    *compare = 0;
 
     clock_t inicio, fim;
     double temp;
@@ -539,7 +523,6 @@ void countSort(int vet[], int n, int exp, unsigned long* troc){
 
 
 double radixSort(int vet[], int size, unsigned long* troc, unsigned long* compare){
-    *compare = 0;
     clock_t inicio, fim;
     double temp;
     
