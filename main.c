@@ -5,11 +5,11 @@
 int main() {
     int* dados[ORDS][TAMS];
     int* copia[ORDS][TAMS];
-    unsigned long troca = 0, comparacao = 0;
     geraMatriz(dados);
     int opcao;
     do {
         copiaMatriz(copia, dados);
+        unsigned long troca = 0, comparacao = 0;
         opcao = ValidaInput("\n=== MENU DE ALGORITMOS DE ORDENACAO ===\n1.  Bolha\n2.  Bolha crit. de parada\n3.  Insercao direta\n4.  Insercao binaria\n5.  Insercao ternaria\n6.  Shell Sort\n7.  Selection Sort\n8.  Heap Sort\n9.  Quicksort centro\n10. Quicksort fim\n11. Quicksort mediana\n12. Merge Sort\n13. Radix Sort\n14. Bucket Sort\n0.  Sair\n=======================================\nEscolha uma opcao: ", 0, 14);
         switch (opcao) {
             case 1:{ // Algoritmo Bolha
